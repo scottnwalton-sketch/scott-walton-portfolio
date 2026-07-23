@@ -356,22 +356,16 @@ section{padding:96px 0;}
 .reel-bottom .link-row{display:flex; align-items:center; gap:6px; margin-top:8px; font-size:.72rem; opacity:.85;}
 
 /* ---------- COMMERCIAL ---------- */
-.ig-client-group{margin-bottom:64px;}
+.ig-client-group{margin-bottom:64px; text-align:center;}
 .ig-client-group:last-child{margin-bottom:0;}
 .client-name{
   font-family:var(--ff-title); font-weight:400; font-style:normal; font-size:1.7rem;
   margin-bottom:24px; padding-bottom:10px; border-bottom:1.5px solid var(--line-dark);
 }
-.ig-grid{display:grid; grid-template-columns:1fr; gap:32px 24px;}
-@media (min-width:640px){ .ig-grid{grid-template-columns:repeat(2,1fr);} }
-@media (min-width:1024px){ .ig-grid{grid-template-columns:repeat(3,1fr);} }
-.ig-card{display:flex; flex-direction:column;}
+.ig-grid{display:flex; flex-wrap:wrap; justify-content:center; gap:20px;}
+.ig-card{display:flex; flex-direction:column; flex:0 1 271px; max-width:100%;}
 .ig-card blockquote.instagram-media{
   margin:0 !important; width:100% !important; min-width:0 !important; max-width:none !important;
-}
-.ig-title{
-  margin-top:12px; font-family:var(--ff-regular); font-weight:400;
-  font-size:1rem; line-height:1.4; color:var(--ink);
 }
 
 /* ---------- FOOTER (persistent) ---------- */

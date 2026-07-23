@@ -161,8 +161,7 @@ var Site = (function(){
         var card = document.createElement("div");
         card.className = "ig-card";
         card.innerHTML =
-          '<blockquote class="instagram-media" data-instgrm-permalink="' + item.url + '" data-instgrm-version="14"></blockquote>' +
-          '<h4 class="ig-title">' + item.label + '</h4>';
+          '<blockquote class="instagram-media" data-instgrm-permalink="' + item.url + '" data-instgrm-version="14"></blockquote>';
         grid.appendChild(card);
       });
       wrap.appendChild(grid);
