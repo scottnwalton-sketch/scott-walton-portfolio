@@ -284,6 +284,10 @@ section{padding:96px 0;}
 }
 .section-head--mulligans .section-desc{
   font-family:var(--ff-regular);
+  max-width:640px;
+}
+.section-head--mulligans .section-desc p + p{
+  margin-top:14px;
 }
 
 /* ---------- YouTube-style featured + grid (Mulligans Golf) ---------- */
