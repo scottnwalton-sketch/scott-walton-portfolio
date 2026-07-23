@@ -279,6 +279,10 @@ section{padding:96px 0;}
   font-size:17px;
 }
 #longform-content{margin-top:56px;}
+#longform-content .yt-grid{
+  grid-template-columns:1fr; max-width:900px; margin:0 auto; gap:48px;
+}
+#longform-content .yt-card .yt-title{font-size:1.15rem;}
 .ig-grid--spaced{margin-top:56px;}
 
 /* ---------- YouTube-style featured + grid (Mulligans Golf) ---------- */
