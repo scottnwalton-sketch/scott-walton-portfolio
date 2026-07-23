@@ -273,10 +273,14 @@ section{padding:96px 0;}
 /* ---------- YouTube-style featured + grid (Mulligans Golf) ---------- */
 .yt-featured{
   display:block; text-decoration:none; color:inherit;
-  max-width:700px; margin:0 auto 56px;
+  max-width:700px; margin:56px auto 56px;
+  outline:none;
 }
 .yt-featured .yt-thumb{
   aspect-ratio:16/9; border-radius:var(--radius); overflow:hidden; background:var(--green-900);
+}
+.yt-featured:focus-visible .yt-thumb{
+  outline:3px solid var(--mint); outline-offset:2px; border-radius:var(--radius);
 }
 .yt-featured .yt-title{
   margin-top:16px; font-family:var(--ff-body); font-weight:600;
@@ -287,9 +291,12 @@ section{padding:96px 0;}
 @media (min-width:640px){ .yt-grid{grid-template-columns:repeat(2,1fr);} }
 @media (min-width:1024px){ .yt-grid{grid-template-columns:repeat(4,1fr);} }
 
-.yt-card{display:block; text-decoration:none; color:inherit;}
+.yt-card{display:block; text-decoration:none; color:inherit; outline:none;}
 .yt-card .yt-thumb{
   aspect-ratio:16/9; border-radius:var(--radius-sm); overflow:hidden; background:var(--green-900);
+}
+.yt-card:focus-visible .yt-thumb{
+  outline:3px solid var(--mint); outline-offset:2px; border-radius:var(--radius-sm);
 }
 .yt-card .yt-title{
   margin-top:10px; font-family:var(--ff-body); font-weight:600;
