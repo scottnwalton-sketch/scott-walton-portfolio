@@ -19,6 +19,13 @@
   font-style:normal;
   font-display:swap;
 }
+@font-face{
+  font-family:"BN Rendall Script";
+  src:url("FONT/BNRendallScript-Cursive.otf") format("opentype");
+  font-weight:400;
+  font-style:normal;
+  font-display:swap;
+}
 
 :root{
   --green-900:#132c1e;
@@ -269,6 +276,15 @@ section{padding:96px 0;}
 .video-card:hover .play-badge span, .lf-featured:hover .play-badge span{transform:scale(1.08); background:var(--ink);}
 .card-title{padding:14px 16px 18px;}
 .card-title h3{font-size:1rem; font-weight:600; font-family:var(--ff-body);}
+
+/* ---------- Mulligans Golf page header ---------- */
+.section-head--mulligans .section-title{
+  font-family:"BN Rendall Script", cursive; font-weight:400;
+  font-size:clamp(3.2rem, 9vw, 5.6rem);
+}
+.section-head--mulligans .section-desc{
+  font-family:var(--ff-regular);
+}
 
 /* ---------- YouTube-style featured + grid (Mulligans Golf) ---------- */
 .yt-featured{
