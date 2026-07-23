@@ -278,6 +278,9 @@ section{padding:96px 0;}
   max-width:640px;
   font-size:17px;
 }
+.section-head--longform .section-desc p + p{
+  margin-top:14px;
+}
 #longform-content{margin-top:56px;}
 #longform-content .yt-grid{
   grid-template-columns:1fr; max-width:900px; margin:0 auto; gap:48px;
