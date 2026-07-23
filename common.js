@@ -12,6 +12,47 @@ var Site = (function(){
     '</div>';
   }
 
+  function ytThumb(id, hires){
+    var fallback = 'https://img.youtube.com/vi/' + id + '/hqdefault.jpg';
+    var src = hires ? 'https://img.youtube.com/vi/' + id + '/maxresdefault.jpg' : fallback;
+    return '<div class="yt-thumb">' +
+      '<img src="' + src + '" alt="" loading="lazy" ' +
+      (hires ? 'onerror="this.onerror=null;this.src=\'' + fallback + '\';"' : '') +
+      '>' +
+    '</div>';
+  }
+
+  function renderYouTubeStyle(containerId, featured, items){
+    var container = document.getElementById(containerId);
+    if (!container) return;
+
+    if (featured) {
+      var feat = document.createElement("a");
+      feat.href = featured.url;
+      feat.className = "yt-featured";
+      feat.setAttribute("data-video-id", featured.id);
+      feat.setAttribute("data-reveal", "");
+      feat.innerHTML = ytThumb(featured.id, true) + '<h3 class="yt-title">' + featured.title + '</h3>';
+      container.appendChild(feat);
+    }
+
+    if (items && items.length) {
+      var grid = document.createElement("div");
+      grid.className = "yt-grid";
+      items.forEach(function(v, i){
+        var card = document.createElement("a");
+        card.href = v.url;
+        card.className = "yt-card";
+        card.setAttribute("data-video-id", v.id);
+        card.setAttribute("data-reveal", "");
+        card.style.transitionDelay = (i * 40) + "ms";
+        card.innerHTML = ytThumb(v.id, false) + '<h3 class="yt-title">' + v.title + '</h3>';
+        grid.appendChild(card);
+      });
+      container.appendChild(grid);
+    }
+  }
+
   function renderLongForm(containerId, items){
     var container = document.getElementById(containerId);
     if (!container) return;
@@ -164,6 +205,7 @@ var Site = (function(){
   return {
     renderLongForm: renderLongForm,
     renderShortForm: renderShortForm,
-    renderCommercial: renderCommercial
+    renderCommercial: renderCommercial,
+    renderYouTubeStyle: renderYouTubeStyle
   };
 })();
