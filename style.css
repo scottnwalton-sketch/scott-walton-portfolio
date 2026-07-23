@@ -285,6 +285,7 @@ section{padding:96px 0;}
 .section-head--mulligans .section-desc{
   font-family:var(--ff-regular);
   max-width:640px;
+  font-size:17px;
 }
 .section-head--mulligans .section-desc p + p{
   margin-top:14px;
