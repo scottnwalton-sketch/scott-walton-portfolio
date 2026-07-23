@@ -2,7 +2,6 @@ var Site = (function(){
   "use strict";
 
   var PLAY_ICON = '<svg class="icon" viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M8 5v14l11-7z"/></svg>';
-  var EXTERNAL_ICON = '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M7 17L17 7M9 7h8v8"/></svg>';
 
   function thumbBox(id){
     return '<div class="thumb-box">' +
@@ -104,24 +103,6 @@ var Site = (function(){
     }
   }
 
-  function renderShortForm(containerId, items){
-    var container = document.getElementById(containerId);
-    if (!container) return;
-    items.forEach(function(v, i){
-      var card = document.createElement("a");
-      card.href = v.url;
-      card.target = "_blank";
-      card.rel = "noopener";
-      card.className = "reel-card";
-      card.setAttribute("data-reveal", "");
-      card.style.transitionDelay = (i * 40) + "ms";
-      card.innerHTML =
-        '<div class="reel-top"><span class="reel-tag">Reel</span></div>' +
-        '<div class="reel-bottom"><h3>' + v.title + '</h3><span class="link-row">' + EXTERNAL_ICON + ' Instagram</span></div>';
-      container.appendChild(card);
-    });
-  }
-
   function loadInstagramEmbeds(){
     if (window.instgrm) { window.instgrm.Embeds.process(); return; }
     var existing = document.getElementById("ig-embed-script");
@@ -166,6 +147,22 @@ var Site = (function(){
       });
       wrap.appendChild(grid);
       container.appendChild(wrap);
+    });
+
+    loadInstagramEmbeds();
+  }
+
+  function renderInstagramFlat(containerId, items){
+    var container = document.getElementById(containerId);
+    if (!container) return;
+
+    items.forEach(function(item){
+      var card = document.createElement("div");
+      card.className = "ig-card";
+      card.setAttribute("data-reveal", "");
+      card.innerHTML =
+        '<blockquote class="instagram-media" data-instgrm-permalink="' + item.url + '" data-instgrm-version="14"></blockquote>';
+      container.appendChild(card);
     });
 
     loadInstagramEmbeds();
@@ -230,8 +227,8 @@ var Site = (function(){
 
   return {
     renderLongForm: renderLongForm,
-    renderShortForm: renderShortForm,
     renderInstagramGrid: renderInstagramGrid,
+    renderInstagramFlat: renderInstagramFlat,
     renderYouTubeStyle: renderYouTubeStyle,
     renderYouTubeShorts: renderYouTubeShorts
   };
