@@ -302,6 +302,17 @@ section{padding:96px 0;}
   font-size:17px;
 }
 
+/* ---------- Short Form page header ---------- */
+.section-head--shortform .section-title{
+  font-family:var(--ff-title); font-weight:400;
+}
+.section-head--shortform .section-desc{
+  font-family:var(--ff-regular);
+  max-width:640px;
+  font-size:17px;
+}
+.ig-grid--spaced{margin-top:56px;}
+
 /* ---------- YouTube-style featured + grid (Mulligans Golf) ---------- */
 .yt-featured{
   display:block; text-decoration:none; color:inherit;
