@@ -12,14 +12,30 @@ var Site = (function(){
     '</div>';
   }
 
-  function ytThumb(id, hires){
+  function ytThumb(id, hires, vertical){
     var fallback = 'https://img.youtube.com/vi/' + id + '/hqdefault.jpg';
-    var src = hires ? 'https://img.youtube.com/vi/' + id + '/maxresdefault.jpg' : fallback;
+    var src = hires ? 'https://img.youtube.com/vi/' + id + '/maxresdefault.jpg' :
+      vertical ? 'https://i.ytimg.com/vi/' + id + '/hq2.jpg' : fallback;
     return '<div class="yt-thumb">' +
       '<img src="' + src + '" alt="" loading="lazy" ' +
-      (hires ? 'onerror="this.onerror=null;this.src=\'' + fallback + '\';"' : '') +
+      'onerror="this.onerror=null;this.src=\'' + fallback + '\';"' +
       '>' +
     '</div>';
+  }
+
+  function renderYouTubeShorts(containerId, items){
+    var container = document.getElementById(containerId);
+    if (!container) return;
+    items.forEach(function(v, i){
+      var card = document.createElement("a");
+      card.href = v.url;
+      card.className = "yt-card yt-card--vertical";
+      card.setAttribute("data-video-id", v.id);
+      card.setAttribute("data-reveal", "");
+      card.style.transitionDelay = (i * 40) + "ms";
+      card.innerHTML = ytThumb(v.id, false, true) + '<h3 class="yt-title">' + v.title + '</h3>';
+      container.appendChild(card);
+    });
   }
 
   function renderYouTubeStyle(containerId, featured, items){
@@ -206,6 +222,7 @@ var Site = (function(){
     renderLongForm: renderLongForm,
     renderShortForm: renderShortForm,
     renderCommercial: renderCommercial,
-    renderYouTubeStyle: renderYouTubeStyle
+    renderYouTubeStyle: renderYouTubeStyle,
+    renderYouTubeShorts: renderYouTubeShorts
   };
 })();
