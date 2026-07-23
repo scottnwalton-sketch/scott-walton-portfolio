@@ -122,7 +122,19 @@ var Site = (function(){
     });
   }
 
-  function renderCommercial(containerId, items){
+  function loadInstagramEmbeds(){
+    if (window.instgrm) { window.instgrm.Embeds.process(); return; }
+    var existing = document.getElementById("ig-embed-script");
+    if (existing) { existing.addEventListener("load", function(){ window.instgrm && window.instgrm.Embeds.process(); }); return; }
+    var s = document.createElement("script");
+    s.id = "ig-embed-script";
+    s.async = true;
+    s.src = "https://www.instagram.com/embed.js";
+    s.onload = function(){ window.instgrm && window.instgrm.Embeds.process(); };
+    document.body.appendChild(s);
+  }
+
+  function renderInstagramGrid(containerId, items){
     var container = document.getElementById(containerId);
     if (!container) return;
 
@@ -135,7 +147,7 @@ var Site = (function(){
 
     byClient.forEach(function(group){
       var wrap = document.createElement("div");
-      wrap.className = "client-group";
+      wrap.className = "ig-client-group";
       wrap.setAttribute("data-reveal", "");
 
       var name = document.createElement("h3");
@@ -143,22 +155,21 @@ var Site = (function(){
       name.textContent = group.client;
       wrap.appendChild(name);
 
-      var list = document.createElement("div");
-      list.className = "campaign-list";
+      var grid = document.createElement("div");
+      grid.className = "ig-grid";
       group.items.forEach(function(item){
-        var row = document.createElement("a");
-        row.href = item.url;
-        row.target = "_blank";
-        row.rel = "noopener";
-        row.className = "campaign-row";
-        row.innerHTML =
-          '<span class="label">' + item.label + '</span>' +
-          '<span class="platform">' + EXTERNAL_ICON + ' Instagram</span>';
-        list.appendChild(row);
+        var card = document.createElement("div");
+        card.className = "ig-card";
+        card.innerHTML =
+          '<blockquote class="instagram-media" data-instgrm-permalink="' + item.url + '" data-instgrm-version="14"></blockquote>' +
+          '<h4 class="ig-title">' + item.label + '</h4>';
+        grid.appendChild(card);
       });
-      wrap.appendChild(list);
+      wrap.appendChild(grid);
       container.appendChild(wrap);
     });
+
+    loadInstagramEmbeds();
   }
 
   function initModal(){
@@ -221,7 +232,7 @@ var Site = (function(){
   return {
     renderLongForm: renderLongForm,
     renderShortForm: renderShortForm,
-    renderCommercial: renderCommercial,
+    renderInstagramGrid: renderInstagramGrid,
     renderYouTubeStyle: renderYouTubeStyle,
     renderYouTubeShorts: renderYouTubeShorts
   };
