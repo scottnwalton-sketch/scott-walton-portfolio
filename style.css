@@ -234,49 +234,6 @@ section{padding:96px 0;}
 .video-pending p{max-width:440px; font-style:italic; color:var(--ink-soft); font-size:.95rem; line-height:1.65;}
 .video-pending code{font-family:var(--ff-body); font-style:normal; background:var(--cream-2); padding:2px 6px; border-radius:4px; font-size:.9em;}
 
-/* ---------- Long Form / video cards ---------- */
-.lf-featured{
-  display:block; text-decoration:none; color:inherit;
-  border-radius:var(--radius); overflow:hidden; position:relative;
-  background:var(--green-700); margin-bottom:28px;
-  border:1px solid var(--line);
-}
-.lf-featured .thumb-box{aspect-ratio:16/7.2;}
-.lf-featured .card-title{padding:18px 22px 22px;}
-.lf-featured .card-title .kicker{font-size:.68rem; letter-spacing:.14em; text-transform:uppercase; opacity:.75; display:block; margin-bottom:6px;}
-.lf-featured .card-title h3{font-size:clamp(1.3rem,3vw,1.9rem); font-weight:600; font-style:italic;}
-
-.card-grid{display:grid; grid-template-columns:1fr; gap:22px;}
-@media (min-width:640px){ .card-grid{grid-template-columns:repeat(2,1fr);} }
-@media (min-width:1024px){ .card-grid.cols-4{grid-template-columns:repeat(4,1fr);} }
-
-.video-card{
-  display:block; text-decoration:none; color:inherit;
-  border-radius:var(--radius-sm); overflow:hidden; background:var(--green-700);
-  border:1px solid var(--line); cursor:pointer;
-}
-.thumb-box{
-  position:relative; aspect-ratio:16/9; background:var(--green-900);
-  overflow:hidden;
-}
-.thumb-box img{width:100%; height:100%; object-fit:cover; transition:transform var(--dur-3) var(--ease-out);}
-.video-card:hover .thumb-box img{transform:scale(1.04);}
-.thumb-box.thumb-fallback{
-  display:flex; align-items:center; justify-content:center;
-  background:linear-gradient(135deg,var(--green-500),var(--green-900));
-}
-.thumb-box.thumb-fallback img{display:none;}
-.play-badge{
-  position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
-}
-.play-badge span{
-  width:56px; height:56px; border-radius:50%; background:rgba(20,20,15,.55);
-  backdrop-filter:blur(2px); display:flex; align-items:center; justify-content:center;
-  color:var(--cream); transition:transform var(--dur-2) var(--ease-out), background var(--dur-2) ease;
-}
-.video-card:hover .play-badge span, .lf-featured:hover .play-badge span{transform:scale(1.08); background:var(--ink);}
-.card-title{padding:14px 16px 18px;}
-.card-title h3{font-size:1rem; font-weight:600; font-family:var(--ff-body);}
 
 /* ---------- Mulligans Golf page header ---------- */
 .section-head--mulligans .section-title{
@@ -307,6 +264,16 @@ section{padding:96px 0;}
   font-family:var(--ff-title); font-weight:400;
 }
 .section-head--shortform .section-desc{
+  font-family:var(--ff-regular);
+  max-width:640px;
+  font-size:17px;
+}
+
+/* ---------- Long Form page header ---------- */
+.section-head--longform .section-title{
+  font-family:var(--ff-title); font-weight:400;
+}
+.section-head--longform .section-desc{
   font-family:var(--ff-regular);
   max-width:640px;
   font-size:17px;

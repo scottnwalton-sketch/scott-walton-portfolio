@@ -1,16 +1,6 @@
 var Site = (function(){
   "use strict";
 
-  var PLAY_ICON = '<svg class="icon" viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M8 5v14l11-7z"/></svg>';
-
-  function thumbBox(id){
-    return '<div class="thumb-box">' +
-      '<img src="https://img.youtube.com/vi/' + id + '/hqdefault.jpg" alt="" loading="lazy" ' +
-      'onerror="this.parentElement.classList.add(\'thumb-fallback\')">' +
-      '<div class="play-badge"><span>' + PLAY_ICON + '</span></div>' +
-    '</div>';
-  }
-
   function ytThumb(id, hires, vertical){
     var fallback = 'https://img.youtube.com/vi/' + id + '/hqdefault.jpg';
     var src = hires ? 'https://img.youtube.com/vi/' + id + '/maxresdefault.jpg' :
@@ -62,41 +52,6 @@ var Site = (function(){
         card.setAttribute("data-reveal", "");
         card.style.transitionDelay = (i * 40) + "ms";
         card.innerHTML = ytThumb(v.id, false) + '<h3 class="yt-title">' + v.title + '</h3>';
-        grid.appendChild(card);
-      });
-      container.appendChild(grid);
-    }
-  }
-
-  function renderLongForm(containerId, items){
-    var container = document.getElementById(containerId);
-    if (!container) return;
-
-    var featured = items.filter(function(v){ return v.featured; })[0];
-    var rest = items.filter(function(v){ return !v.featured; });
-
-    if (featured) {
-      var feat = document.createElement("a");
-      feat.href = featured.url;
-      feat.className = "lf-featured";
-      feat.setAttribute("data-video-id", featured.id);
-      feat.setAttribute("data-reveal", "");
-      feat.innerHTML = thumbBox(featured.id) +
-        '<div class="card-title"><span class="kicker">Featured</span><h3>' + featured.title + '</h3></div>';
-      container.appendChild(feat);
-    }
-
-    if (rest.length) {
-      var grid = document.createElement("div");
-      grid.className = "card-grid cols-4";
-      rest.forEach(function(v, i){
-        var card = document.createElement("a");
-        card.href = v.url;
-        card.className = "video-card";
-        card.setAttribute("data-video-id", v.id);
-        card.setAttribute("data-reveal", "");
-        card.style.transitionDelay = (i * 40) + "ms";
-        card.innerHTML = thumbBox(v.id) + '<div class="card-title"><h3>' + v.title + '</h3></div>';
         grid.appendChild(card);
       });
       container.appendChild(grid);
@@ -226,7 +181,6 @@ var Site = (function(){
   });
 
   return {
-    renderLongForm: renderLongForm,
     renderInstagramGrid: renderInstagramGrid,
     renderInstagramFlat: renderInstagramFlat,
     renderYouTubeStyle: renderYouTubeStyle,
