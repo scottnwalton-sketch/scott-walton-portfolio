@@ -38,6 +38,7 @@
   --ink:#151410;
   --ink-soft:#151410cc;
   --mint:#cfead0;
+  --brand-blue:#004eff;
   --line:rgba(255,255,255,.18);
   --line-dark:rgba(20,20,15,.14);
   --radius:18px;
@@ -108,7 +109,7 @@ nav.topnav{display:flex; align-items:center; justify-content:space-between; gap:
   text-decoration:none;
   transition:background var(--dur-1) ease, border-color var(--dur-1) ease;
 }
-.brand.active{background:var(--ink); color:var(--cream); border-color:var(--ink);}
+.brand.active{background:var(--brand-blue); color:var(--cream); border-color:var(--brand-blue);}
 .navlinks{display:flex; align-items:center; gap:6px; flex-wrap:wrap;}
 .navlinks a{
   text-decoration:none; font-weight:500; font-size:.92rem; letter-spacing:.02em;
@@ -117,7 +118,7 @@ nav.topnav{display:flex; align-items:center; justify-content:space-between; gap:
   transition:background var(--dur-1) ease, border-color var(--dur-1) ease, color var(--dur-1) ease;
 }
 .navlinks a:hover{border-color:var(--line);}
-.navlinks a.active{background:var(--ink); color:var(--cream); border-color:var(--ink);}
+.navlinks a.active{background:var(--brand-blue); color:var(--cream); border-color:var(--brand-blue);}
 
 .hero-title{
   text-align:center;
@@ -135,13 +136,6 @@ nav.topnav{display:flex; align-items:center; justify-content:space-between; gap:
   color:var(--cream);
   margin-bottom:40px;
 }
-.role-circled{position:relative; display:inline-block;}
-.role-circle{
-  position:absolute; inset:-65% -12% -18% -12%; z-index:1;
-  overflow:visible; pointer-events:none;
-  transform:rotate(-2deg);
-}
-
 .hero-bio{max-width:680px; margin:0 auto; text-align:left;}
 .hero-bio p{font-family:var(--ff-regular); font-size:1.05rem; line-height:1.75; color:var(--cream); opacity:.95; margin-bottom:18px;}
 .hero-bio p:last-of-type{margin-bottom:22px;}
@@ -153,12 +147,6 @@ nav.topnav{display:flex; align-items:center; justify-content:space-between; gap:
 }
 .scroll-cue svg{animation:bob 1.8s ease-in-out infinite;}
 @keyframes bob{0%,100%{transform:translateY(0);}50%{transform:translateY(6px);}}
-
-.cloud{position:absolute; color:var(--line); opacity:.9; pointer-events:none; z-index:1;}
-.cloud svg{display:block;}
-.cloud--bl{left:-40px; bottom:-30px; width:280px;}
-.cloud--br{right:-40px; bottom:-10px; width:240px; transform:scaleX(-1);}
-@media (max-width:640px){ .cloud--bl{width:190px;} .cloud--br{width:170px;} }
 
 /* ---------- SECTION shell ---------- */
 section{padding:96px 0;}
