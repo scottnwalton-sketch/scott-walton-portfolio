@@ -223,7 +223,7 @@ section{padding:96px 0;}
 .showreel-circle{
   position:absolute; inset:-88% -10% -8% -10%; z-index:2;
   overflow:visible; pointer-events:none;
-  transform:rotate(-3deg) translateX(0%);
+  transform:rotate(-3deg) translateX(1%);
 }
 .showreel-note{width:640px; max-width:75vw; height:auto; margin-top:6px;}
 .showreel-player{width:100%;}
