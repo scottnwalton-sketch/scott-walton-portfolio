@@ -202,6 +202,12 @@ section{padding:96px 0;}
   display:block; height:34px; width:auto; flex:none;
   filter:grayscale(1); opacity:.55;
 }
+.logo-track img.logo--taylormade,
+.logo-track img.logo--tac,
+.logo-track img.logo--future-golf{height:30.6px;}
+.logo-track img.logo--tyf{height:44.2px;}
+.logo-track img.logo--afl,
+.logo-track img.logo--f360{height:40.8px;}
 @keyframes logo-scroll{
   from{transform:translateX(0);}
   to{transform:translateX(-50%);}
@@ -217,7 +223,7 @@ section{padding:96px 0;}
 .showreel-circle{
   position:absolute; inset:-88% -10% -8% -10%; z-index:2;
   overflow:visible; pointer-events:none;
-  transform:rotate(-3deg) translateX(5%);
+  transform:rotate(-3deg) translateX(-10%);
 }
 .showreel-note{width:640px; max-width:75vw; height:auto; margin-top:6px;}
 .showreel-player{width:100%;}
