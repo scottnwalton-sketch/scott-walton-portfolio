@@ -136,7 +136,7 @@ nav.topnav{display:flex; align-items:center; justify-content:space-between; gap:
   color:var(--cream);
   margin-bottom:40px;
 }
-.hero-bio{max-width:680px; margin:0 auto; text-align:left;}
+.hero-bio{max-width:680px; margin:0 auto; text-align:center;}
 .hero-bio p{font-family:var(--ff-regular); font-size:1.05rem; line-height:1.75; color:var(--cream); opacity:.95; margin-bottom:18px;}
 .hero-bio p:last-of-type{margin-bottom:22px;}
 
